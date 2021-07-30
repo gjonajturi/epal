@@ -38,12 +38,6 @@ hs_err_pid*
 *.iml
 *.ipr
 
-client-service/*.mvn
-client-service/src/main/**/target/
-client-service/src/test/**/target/
-client-service/src/main/**/build/
-client-service/src/test/**/build/
-
 
 */*.mvn
 */src/main/**/target/
