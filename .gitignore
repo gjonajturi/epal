@@ -45,16 +45,10 @@ client-service/src/main/**/build/
 client-service/src/test/**/build/
 
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+*/*.mvn
+*/src/main/**/target/
+*/src/test/**/target/
+*/src/main/**/build/
+*/src/test/**/build/
 
-### VS Code ###
-.vscode/
 
