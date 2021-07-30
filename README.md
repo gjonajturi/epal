@@ -1,2 +1,2 @@
-# e-pal
+# epal
 Public repository for epal project
