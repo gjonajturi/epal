@@ -1,4 +1,4 @@
-package org.epal.clientservice;
+package org.epal.client_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
