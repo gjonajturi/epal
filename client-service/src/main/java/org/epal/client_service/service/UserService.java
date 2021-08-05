@@ -1,12 +1,12 @@
 package org.epal.client_service.service;
 
-import org.epal.client_service.domain.User;
+import org.epal.client_service.model.User;
 
 import java.util.List;
 
 public interface UserService {
 
-    List<User> getAll();
+    List<User> findAll();
 
     User find(Long id);
 

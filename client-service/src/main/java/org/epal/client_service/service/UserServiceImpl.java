@@ -1,16 +1,21 @@
 package org.epal.client_service.service;
 
-import org.epal.client_service.domain.User;
+import org.epal.client_service.model.User;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
 
+    static List<User> list = new ArrayList<>();
+
     @Override
-    public List<User> getAll() {
-        return null;
+    public List<User> findAll() {
+        list.add(new User(1L, "username", "password", "firstname", "lastname"));
+        list.add(new User(2L, "username2", "password", "firsname", "lastname"));
+        return list;
     }
 
     @Override
@@ -20,7 +25,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
-        return null;
+        list.add(user);
+        return user;
     }
 
     @Override
