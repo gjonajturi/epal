@@ -1,0 +1,26 @@
+package org.epal.transport_service.service;
+
+import org.epal.transport_service.model.Bus;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class BusServiceImpl implements BusService {
+    static List<Bus> list = new ArrayList<>();
+
+    @Override
+    public List<Bus> findAll() {
+        list.add(new Bus(1L, "ALB122", "MERCEDS-BENZ"));
+        list.add(new Bus(2L, "ALB2322", "MERCEDS-BENZ"));
+        list.add(new Bus(3L, "ALB132", "MERCEDS-BENZ"));
+        list.add(new Bus(4L, "ALB122", "MERCEDS-BENZ"));
+        return list;
+    }
+
+    @Override
+    public void save(Bus newBus) {
+        list.add(newBus);
+    }
+}

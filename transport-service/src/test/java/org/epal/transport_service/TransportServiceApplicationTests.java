@@ -1,4 +1,4 @@
-package org.epal.transportservice;
+package org.epal.transport_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
