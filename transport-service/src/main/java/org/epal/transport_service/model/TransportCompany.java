@@ -4,21 +4,19 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.io.Serializable;
 
 @Data
 @Builder
-@Document(value = "bus")
+@Document(value = "transport_company")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Bus implements Serializable {
+public class TransportCompany {
 
     @Id
     private Long id;
-    private String plate;
-    private String brand;
-
+    private String code;
+    private String name;
 
 }

@@ -26,4 +26,12 @@ public class BusController {
     public void saveBus(@RequestBody Bus newBus) {
         busService.save(newBus);
     }
+
+    @GetMapping("/duty/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Boolean isInDuty(@PathVariable Long id) {
+        Bus bus = busService.findInDuty(id)
+                .orElseThrow(() -> new RuntimeException("Bus with id " + id + " is not in duty"));
+        return bus != null;
+    }
 }

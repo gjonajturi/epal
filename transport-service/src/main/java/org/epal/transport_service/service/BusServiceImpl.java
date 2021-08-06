@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BusServiceImpl implements BusService {
@@ -22,5 +23,10 @@ public class BusServiceImpl implements BusService {
     @Override
     public void save(Bus newBus) {
         list.add(newBus);
+    }
+
+    @Override
+    public Optional<Bus> findInDuty(Long id) {
+        return Optional.empty();
     }
 }
