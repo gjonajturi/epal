@@ -6,7 +6,7 @@ import org.epal.client_service.repository.FavBusLineRepository;
 import org.epal.client_service.service.ClientService;
 import org.epal.commons.client.model.Client;
 import org.epal.commons.client.model.FavBusLine;
-import org.epal.commons.tranport.model.BusLine;
+import org.epal.commons.transport.model.BusLine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

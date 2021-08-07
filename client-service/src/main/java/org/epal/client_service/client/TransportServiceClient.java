@@ -1,7 +1,7 @@
 package org.epal.client_service.client;
 
-import org.epal.commons.tranport.model.Bus;
-import org.epal.commons.tranport.model.BusLine;
+import org.epal.commons.transport.model.Bus;
+import org.epal.commons.transport.model.BusLine;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
