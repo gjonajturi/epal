@@ -1,15 +1,15 @@
 package org.epal.client_service.controller;
 
-import client.model.Client;
-import client.model.FavBusLine;
 import org.epal.client_service.client.TransportServiceClient;
 import org.epal.client_service.dto.FavBusLineDto;
 import org.epal.client_service.repository.FavBusLineRepository;
 import org.epal.client_service.service.ClientService;
+import org.epal.commons.client.model.Client;
+import org.epal.commons.client.model.FavBusLine;
+import org.epal.commons.tranport.model.BusLine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import transport.model.BusLine;
 
 import java.util.List;
 

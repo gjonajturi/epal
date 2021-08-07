@@ -1,7 +1,7 @@
 package org.epal.client_service.controller;
 
-import client.model.User;
 import org.epal.client_service.service.UserService;
+import org.epal.commons.client.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

@@ -1,7 +1,7 @@
 package org.epal.transport_service.repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-import transport.model.Bus;
+import org.epal.commons.tranport.model.Bus;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BusRepository extends MongoRepository<Bus, Long> {
+public interface BusRepository extends JpaRepository<Bus, Long> {
 }

@@ -1,6 +1,6 @@
 package org.epal.client_service.service;
 
-import client.model.Client;
+import org.epal.commons.client.model.Client;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

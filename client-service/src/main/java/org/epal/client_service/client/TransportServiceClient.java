@@ -1,10 +1,10 @@
 package org.epal.client_service.client;
 
+import org.epal.commons.tranport.model.Bus;
+import org.epal.commons.tranport.model.BusLine;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import transport.model.Bus;
-import transport.model.BusLine;
 
 import java.util.List;
 
@@ -39,4 +39,6 @@ public interface TransportServiceClient {
     @GetMapping("/api/bus_line/{busLineId}")
     @ResponseStatus(HttpStatus.OK)
     BusLine findBusLineById(@PathVariable Long id);
+
+
 }
