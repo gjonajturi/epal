@@ -13,9 +13,9 @@ public class BusLineServiceImpl implements BusLineService {
 
     @Override
     public List<BusLine> findAll() {
-        list.add(new BusLine(1L, "Tirana-Durres", null));
-        list.add(new BusLine(2L, "Tirana-Vlore", null));
-        list.add(new BusLine(3L, "Tirana-Shkoder", null));
+        list.add(new BusLine(1L, "Tirana-Durres"));
+        list.add(new BusLine(2L, "Tirana-Vlore"));
+        list.add(new BusLine(3L, "Tirana-Shkoder"));
         return null;
     }
 
