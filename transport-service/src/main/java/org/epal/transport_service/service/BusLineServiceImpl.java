@@ -21,7 +21,7 @@ public class BusLineServiceImpl implements BusLineService {
 
     @Override
     public Optional<BusLine> findById(Long id) {
-        return Optional.empty();
+        return Optional.of(new BusLine(1L,"Tirana-Durres"));
     }
 
 }

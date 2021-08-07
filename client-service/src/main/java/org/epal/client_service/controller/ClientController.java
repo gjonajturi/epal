@@ -8,10 +8,13 @@ import org.epal.commons.client.model.Client;
 import org.epal.commons.client.model.FavBusLine;
 import org.epal.commons.transport.model.BusLine;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JCircuitBreaker;
+import org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JCircuitBreakerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 @RestController
 @RequestMapping("/api/client")
@@ -26,6 +29,9 @@ public class ClientController {
 
     @Autowired
     private TransportServiceClient transportServiceClient;
+
+    @Autowired
+    private  Resilience4JCircuitBreakerFactory circuitBreakerFactory;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -42,10 +48,32 @@ public class ClientController {
          return favBusLine.getId();
      }
 
-    @GetMapping("/{clientId}/bus_line")
+    @GetMapping("/{clientId}/bus_line/{busLineId}")
     @ResponseStatus(HttpStatus.OK)
     public BusLine findClientBusLine(@PathVariable Long clientId, @PathVariable Long busLineId){
+        System.out.println("ClientId: "+clientId+"--BusLineId: "+busLineId);
        return transportServiceClient.findBusLineById(busLineId);
+    }
+
+    @GetMapping("/{clientId}/bus_line")
+    @ResponseStatus(HttpStatus.OK)
+    public List<BusLine> findAllBusLines(@PathVariable Long clientId){
+        Resilience4JCircuitBreaker circuitBreaker=circuitBreakerFactory.create("transport-circuit");
+
+        Supplier<List<BusLine>> listSupplier=()->transportServiceClient.findAllBusLines();
+        List<BusLine> busLines=circuitBreaker.run(listSupplier,throwable -> handleErrorCase());
+
+        if(busLines!=null) {
+            System.out.println("ClientId: " + clientId);
+            return busLines;
+        }else{
+            System.err.println("ClientId : "+clientId);
+            return busLines;
+        }
+    }
+
+    private List<BusLine> handleErrorCase(){
+        return null;
     }
 
 

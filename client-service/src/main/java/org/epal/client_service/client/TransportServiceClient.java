@@ -38,7 +38,7 @@ public interface TransportServiceClient {
 
     @GetMapping("/api/bus_line/{busLineId}")
     @ResponseStatus(HttpStatus.OK)
-    BusLine findBusLineById(@PathVariable Long id);
+    BusLine findBusLineById(@PathVariable Long busLineId);
 
 
 }

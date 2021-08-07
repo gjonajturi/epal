@@ -24,9 +24,9 @@ public class BusLineController {
 
     @GetMapping("/{busLineId}")
     @ResponseStatus(HttpStatus.OK)
-    public BusLine findById(@PathVariable Long id) {
-        BusLine busLine = busLineService.findById(id)
-                .orElseThrow(() -> new RuntimeException("BusLine with id " + id + " not found."));
+    public BusLine findById(@PathVariable Long busLineId) {
+        BusLine busLine = busLineService.findById(busLineId)
+                .orElseThrow(() -> new RuntimeException("BusLine with id " + busLineId + " not found."));
         return busLine;
     }
 
