@@ -1,23 +1,22 @@
-package org.epal.transport_service.model;
-
+package transport.model;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
 
 @Data
 @Builder
-@Document(value = "bus_line")
+@Document(value = "transport_company")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class BusLine {
+public class TransportCompany {
+
     @Id
     private Long id;
+    private String code;
     private String name;
-    private List<TransportCompany> transportCompanies;
 
 }

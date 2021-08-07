@@ -1,4 +1,4 @@
-package org.epal.client_service.model;
+package client.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package org.epal.client_service.controller;
 
-import org.epal.client_service.model.User;
+import client.model.User;
 import org.epal.client_service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +11,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
-
 
     @Autowired
     private UserService userService;

@@ -1,6 +1,7 @@
 package org.epal.client_service.service;
 
-import org.epal.client_service.model.Client;
+
+import client.model.Client;
 
 import java.util.List;
 

@@ -1,7 +1,8 @@
 package org.epal.transport_service.service;
 
-import org.epal.transport_service.model.Bus;
+
 import org.springframework.stereotype.Service;
+import transport.model.Bus;
 
 import java.util.ArrayList;
 import java.util.List;

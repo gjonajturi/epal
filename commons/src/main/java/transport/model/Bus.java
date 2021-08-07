@@ -1,22 +1,24 @@
-package org.epal.transport_service.model;
+package transport.model;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 
 @Data
 @Builder
-@Document(value = "transport_company")
+@Document(value = "bus")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class TransportCompany {
+public class Bus implements Serializable {
 
     @Id
     private Long id;
-    private String code;
-    private String name;
+    private String plate;
+    private String brand;
+
 
 }
