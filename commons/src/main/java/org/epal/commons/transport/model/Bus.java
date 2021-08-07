@@ -1,4 +1,4 @@
-package org.epal.commons.tranport.model;
+package org.epal.commons.transport.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

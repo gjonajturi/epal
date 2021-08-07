@@ -1,7 +1,7 @@
 package org.epal.transport_service.service;
 
 
-import org.epal.commons.tranport.model.BusLine;
+import org.epal.commons.transport.model.BusLine;
 
 import java.util.List;
 import java.util.Optional;

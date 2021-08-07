@@ -1,6 +1,6 @@
 package org.epal.transport_service.controller;
 
-import org.epal.commons.tranport.model.Bus;
+import org.epal.commons.transport.model.Bus;
 import org.epal.transport_service.service.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
