@@ -61,7 +61,7 @@
 
 
         <!--- Request identification & tracing libraries for distributed tracing pattern
-              Used for end-end journey of request & visualization -->
+        Used for end-end journey of request & visualization -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
@@ -70,7 +70,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-zipkin</artifactId>
         </dependency>
-
 
         <dependency>
             <groupId>mysql</groupId>

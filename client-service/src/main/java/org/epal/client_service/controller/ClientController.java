@@ -1,5 +1,6 @@
 package org.epal.client_service.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.epal.client_service.client.TransportServiceClient;
 import org.epal.client_service.dto.FavBusLineDto;
 import org.epal.client_service.repository.FavBusLineRepository;
@@ -14,10 +15,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.ExecutorService;
 import java.util.function.Supplier;
 
 @RestController
 @RequestMapping("/api/client")
+@Slf4j
 public class ClientController {
 
 
@@ -33,9 +36,13 @@ public class ClientController {
     @Autowired
     private  Resilience4JCircuitBreakerFactory circuitBreakerFactory;
 
+    @Autowired
+    private ExecutorService traceableExecutorService;
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Client> findAll() {
+        log.info("findAll mapping found.");
         return clientService.findAll();
     }
 
@@ -43,6 +50,7 @@ public class ClientController {
     @PostMapping("/fav_bus_line")
     @ResponseStatus(HttpStatus.CREATED)
     public Long saveFavBusLine(@RequestBody FavBusLineDto favBusLineDto){
+        log.info("saveFavBusLine mapping found.");
          FavBusLine favBusLine=new FavBusLine(null,favBusLineDto.getClientId(),favBusLineDto.getBusLineId());
          favBusLine=favBusLineRepository.saveAndFlush(favBusLine);
          return favBusLine.getId();
@@ -51,6 +59,7 @@ public class ClientController {
     @GetMapping("/{clientId}/bus_line/{busLineId}")
     @ResponseStatus(HttpStatus.OK)
     public BusLine findClientBusLine(@PathVariable Long clientId, @PathVariable Long busLineId){
+        log.info("findClientBusLine mapping found");
         System.out.println("ClientId: "+clientId+"--BusLineId: "+busLineId);
        return transportServiceClient.findBusLineById(busLineId);
     }
@@ -58,6 +67,12 @@ public class ClientController {
     @GetMapping("/{clientId}/bus_line")
     @ResponseStatus(HttpStatus.OK)
     public List<BusLine> findAllBusLines(@PathVariable Long clientId){
+        log.info("FindAllBusLines mapping found.");
+
+        //Add to circuit breaker factory the traceable-executor-service to share request-id
+        circuitBreakerFactory.configureExecutorService(traceableExecutorService);
+
+        //Create new circuit breaker with circuit breaker factory
         Resilience4JCircuitBreaker circuitBreaker=circuitBreakerFactory.create("transport-circuit");
 
         Supplier<List<BusLine>> listSupplier=()->transportServiceClient.findAllBusLines();
